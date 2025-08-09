@@ -1334,4 +1334,225 @@ button:hover {
 ::-moz-selection {
   background: rgba(0, 0, 0, 0.5); /* Translucent blackish-grey */
   color: white; /* Ensure text remains visible */
-} 
+}
+
+/* Scroll animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced project hover effects */
+.project-item {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s ease,
+              background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(244, 221, 23, 0.1), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.project-item:hover::before {
+  left: 100%;
+}
+
+.project-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(244, 221, 23, 0.2);
+  background: #222;
+}
+
+.project-item:hover .project-img img {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+}
+
+/* Enhanced work item hover effects */
+.work-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-item:hover {
+  transform: translateX(10px);
+  box-shadow: -5px 0 20px rgba(244, 221, 23, 0.3);
+}
+
+.work-item::after {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #F4DD17 0%, #fff 100%);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  transform-origin: bottom;
+}
+
+.work-item:hover::after {
+  transform: scaleY(1);
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: rgba(244, 221, 23, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.cursor-hover {
+  width: 40px;
+  height: 40px;
+  background: rgba(244, 221, 23, 0.6);
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: rgba(244, 221, 23, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+.cursor-trail.trail-hover {
+  width: 12px;
+  height: 12px;
+  background: rgba(244, 221, 23, 0.6);
+}
+
+/* Floating animation for hero elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.greek-symbol {
+  animation: float 3s ease-in-out infinite;
+}
+
+.greek-symbol:nth-child(2) { animation-delay: 0.5s; }
+.greek-symbol:nth-child(3) { animation-delay: 1s; }
+.greek-symbol:nth-child(4) { animation-delay: 1.5s; }
+
+/* Enhanced button animations */
+.browse-more-btn, .contact-banner button, .resume-download-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.browse-more-btn::before, .contact-banner button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.browse-more-btn:hover::before, .contact-banner button:hover::before {
+  left: 100%;
+}
+
+/* Glowing text effect for highlights */
+.projects-highlight, .work-highlight, .r1-highlight {
+  text-shadow: 0 0 10px rgba(244, 221, 23, 0.5);
+  transition: text-shadow 0.3s ease;
+}
+
+.projects-highlight:hover, .work-highlight:hover, .r1-highlight:hover {
+  text-shadow: 0 0 20px rgba(244, 221, 23, 0.8);
+}
+
+/* Smooth reveal animation for contact form */
+.contact-banner {
+  animation: slideUpFade 0.8s ease-out;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced SVG hover effects */
+.svg-link {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.svg-link:hover {
+  transform: translateY(-3px) scale(1.1);
+}
+
+/* Pulse animation for scroll to top button */
+#scroll-to-top {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(244, 221, 23, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(244, 221, 23, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 221, 23, 0); }
+}
+
+/* Disable custom cursor on mobile */
+@media (max-width: 768px) {
+  .custom-cursor, .cursor-trail {
+    display: none;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-animate,
+  .project-item,
+  .work-item,
+  .custom-cursor,
+  .cursor-trail,
+  .greek-symbol {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .project-item:hover,
+  .work-item:hover {
+    transform: none !important;
+  }
+}
