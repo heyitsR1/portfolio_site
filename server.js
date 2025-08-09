@@ -1,6 +1,1 @@
-@@ .. @@
--server.listen(3000, () => {
--  console.log('Server running at http://localhost:3000/');
-+server.listen(3000, '0.0.0.0', () => {
-+  console.log('Server running at http://localhost:3000/');
- });
+{"code":"rate-limited","message":"You have hit the rate limit. Please upgrade to keep chatting.","providerLimitHit":false,"isRetryable":true}
